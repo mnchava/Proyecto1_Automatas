@@ -3,6 +3,12 @@ import 'package:file_access/file_access.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/*
+  JESUS SALVADOR URIBE FERRER
+  TEORIA DE AUTOMATAS
+  PROYECTO 1
+*/
+
 void main() {
   runApp(
     MaterialApp(
@@ -63,6 +69,7 @@ class _MyWidgetState extends State<MyWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // TITULO
             Text(
               'Proyecto 1 - Teoria de Automatas',
               style: Theme.of(context).textTheme.headline4,
@@ -71,6 +78,7 @@ class _MyWidgetState extends State<MyWidget> {
               'Jesus Salvador Uribe Ferrer',
               style: Theme.of(context).textTheme.headline6,
             ),
+            // CAMPO DE TEXTO
             Parent(
               style: ParentStyle()
                 ..width(500)
@@ -93,6 +101,7 @@ class _MyWidgetState extends State<MyWidget> {
               'Ingresa el texto o selecciona un archivo .txt.',
               style: Theme.of(context).textTheme.subtitle1,
             ),
+            // BOTON SELECCIONAR
             Parent(
               style: ParentStyle()
                 ..height(50)
@@ -107,6 +116,7 @@ class _MyWidgetState extends State<MyWidget> {
                 label: Text('Seleccionar'),
               ),
             ),
+            // BOTON CONTAR
             Parent(
               style: ParentStyle()
                 ..height(50)
@@ -117,14 +127,16 @@ class _MyWidgetState extends State<MyWidget> {
                 onPressed: () {
                   setState(() {
                     _contador.procesar(
-                        cadena: _input.text.toLowerCase().replaceAll(
-                            RegExp(r'[\s,.cdf-vxz]'),
-                            '#')); // se reemplazan caracteres que no estan en el alfabeto con #
+                      cadena: _input.text
+                          .toLowerCase()
+                          .replaceAll(RegExp(r'[\s,.cdf-vxz0-9+]'), '#'),
+                    ); // se reemplazan caracteres que no estan en el alfabeto con #
                   });
                 },
                 child: Text('Contar'),
               ),
             ),
+            // RESULTADOS
             Parent(
               style: ParentStyle()..width(300),
               child: Row(
